@@ -86,7 +86,7 @@ myApp.config(["$routeProvider", function ($routeProvider) {
         features: $scope.features,
       };
 
-      $http.post('http://localhost:3000/product/data', field)
+      $http.post('https://mobile-project-backend.onrender.com/product/data', field)
         .then(function (response) {
           showAlert('Product added successfully');
           $scope.getData();
@@ -101,7 +101,7 @@ myApp.config(["$routeProvider", function ($routeProvider) {
   };
 
     $scope.getData = function () {
-      $http.get('http://localhost:3000/product/data')
+      $http.get('https://mobile-project-backend.onrender.com/product/data')
         .then(function (response) {
           $scope.all = response.data;
         })
@@ -113,7 +113,7 @@ myApp.config(["$routeProvider", function ($routeProvider) {
     // Function to delete a product
   //   $scope.deleteProduct = function (id) {
   //     if (confirm("Are you sure you want to delete this product?")) {
-  //         $http.delete('http://localhost:3000/product/data/' + id)
+  //         $http.delete('https://mobile-project-backend.onrender.com/product/data/' + id)
   //             .then(function (response) {
   //               showAlert('Product deleted successfully');
   //                 $scope.getData();
@@ -130,7 +130,7 @@ myApp.config(["$routeProvider", function ($routeProvider) {
 
   $scope.confirmDelete = function() {
     if ($scope.productToDelete) {
-      $http.delete('http://localhost:3000/product/data/' + $scope.productToDelete)
+      $http.delete('https://mobile-project-backend.onrender.com/product/data/' + $scope.productToDelete)
         .then(function(response) {
           $('#confirmModal').modal('hide');
           showAlert('Product deleted successfully');
@@ -150,7 +150,7 @@ myApp.config(["$routeProvider", function ($routeProvider) {
   .controller("productdetailctrl", function ($scope, $http, $routeParams) {
     const productId = $routeParams.id;
 
-    $http.get('http://localhost:3000/product/data/' + productId).then(function (response) {
+    $http.get('https://mobile-project-backend.onrender.com/product/data/' + productId).then(function (response) {
       $scope.selectedProduct = response.data;
       // console.log(selectedProduct);
     });
@@ -159,13 +159,13 @@ myApp.config(["$routeProvider", function ($routeProvider) {
   .controller("productEdit", function ($http, $scope, $routeParams) {
     const productId = $routeParams.id;
 
-    $http.get('http://localhost:3000/product/data/' + productId).then(function (response) {
+    $http.get('https://mobile-project-backend.onrender.com/product/data/' + productId).then(function (response) {
       $scope.product = response.data;
       // console.log(selectedProduct);
     });
     $scope.updateForm = function () {
 
-      $http.put('http://localhost:3000/product/data/' + productId, $scope.product)
+      $http.put('https://mobile-project-backend.onrender.com/product/data/' + productId, $scope.product)
         .then(function (response) {
           showAlert('Product updated successfully');
           window.location.href = '#!/product_listing';
