@@ -1,0 +1,99 @@
+<h3 class="d-flex justify-content-center">New Mobile</h3>
+<div class="d-flex justify-content-center">
+    <div class="content">
+        <form name="productForm" ng-submit="submitForm()" novalidate>
+            <h6 class="d-flex">ID:</h6>
+            <input type="text" class="form-control" name="pid" ng-model="all.length +1" disabled >
+
+            <h6 class="d-flex">Brand Name:</h6>
+            <input type="text" name="brandName" id="brandName" class="form-control" ng-model="brandName" required >
+            <div ng-show="productForm.brandName.$touched && productForm.brandName.$invalid" style="color: red">
+                <span ng-show="productForm.brandName.$error.required">Brand Name is required.</span>
+            </div>
+
+            <h6 class="d-flex">Model Name:</h6>
+            <input type="text" name="modelName" id="modelName" class="form-control" ng-model="modelName" required>
+            <div ng-show="productForm.modelName.$touched && productForm.modelName.$invalid" style="color: red">
+                <span ng-show="productForm.modelName.$error.required">Model Name is required.</span>
+            </div>
+
+            <h6 class="d-flex">Description:</h6>
+            <input type="text" ng-model="description" name="description" class="form-control">
+            <div ng-show="productForm.description.$touched && productForm.description.$invalid" style="color: red">
+                <span ng-show="productForm.description.$error.required">Description is required.</span>
+            </div>
+
+            <h6 class="d-flex">Price:</h6>
+            <div class="input-group">
+                <span class="input-group-text">₹</span>
+                <input type="text" class="price form-control" id="price" name="price" ng-model="price" required
+                    ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" />
+            </div>
+            <div ng-show="productForm.price.$touched && productForm.price.$error.required" style="color: red">
+                <span>Price is required.</span>
+            </div>
+            <div ng-show="productForm.price.$error.pattern && productForm.price.$dirty" style="color: red">
+                <span>Price must be a number.</span>
+            </div>
+
+
+            <h6 class="d-flex">Colors:</h6>
+            <input type="text" name="colors" id="colors" class="form-control" ng-model="colors" required>
+            <div ng-show="productForm.colors.$touched && productForm.colors.$invalid" style="color: red">
+                <span ng-show="productForm.colors.$error.required">Color is required.</span>
+            </div>
+
+            <label for="uploadInput1">Image:</label><br>
+      <input type="file" name="imageFile" id="uploadInput1" class="form-control-file" file-input="imageFile" required>
+      <div ng-show="productForm.imageFile.$touched && productForm.imageFile.$invalid" style="color: red">
+        <span ng-show="productForm.imageFile.$error.required">Image is required.</span>
+      </div>
+
+            <h6 class="d-flex">Display Type:</h6>
+            <input type="text" name="Dtype" id="Dtype" class="form-control" ng-model="Dtype" required>
+            <div ng-show="productForm.Dtype.$touched && productForm.Dtype.$invalid" style="color: red">
+                <span ng-show="productForm.Dtype.$error.required">Display Type is required.</span>
+            </div>
+
+            <h6 class="d-flex">Display Size:</h6>
+            <input type="text" name="Dsize" id="Dsize" class="form-control" ng-model="Dsize" required>
+            <div ng-show="productForm.Dsize.$touched && productForm.Dsize.$invalid" style="color: red">
+                <span ng-show="productForm.Dsize.$error.required">Display Size is required.</span>
+            </div>
+
+            <h6 class="d-flex">Processor:</h6>
+            <input type="text" name="processor" id="processor" class="form-control" ng-model="processor" required>
+            <div ng-show="productForm.processor.$touched && productForm.processor.$invalid" style="color: red">
+                <span ng-show="productForm.processor.$error.required">Processor is required.</span>
+            </div>
+
+            <h6 class="d-flex">Camera:</h6>
+            <input type="text" name="camera" id="camera" class="form-control" ng-model="camera" required>
+            <div ng-show="productForm.camera.$touched && productForm.camera.$invalid" style="color: red">
+                <span ng-show="productForm.camera.$error.required">Camera is required.</span>
+            </div>
+
+            <h6 class="d-flex">Battery:</h6>
+            <input type="text" name="battery" id="battery" class="form-control" ng-model="battery" required>
+            <div ng-show="productForm.battery.$touched && productForm.battery.$invalid" style="color: red">
+                <span ng-show="productForm.battery.$error.required">Battery is required.</span>
+            </div>
+
+            <h6 class="d-flex">Features:</h6>
+            <input type="text" name="features" id="features" class="form-control" ng-model="features" required>
+            <div ng-show="productForm.features.$touched && productForm.features.$invalid" style="color: red">
+                <span ng-show="productForm.features.$error.required">Features is required.</span>
+            </div>
+
+            <br>
+            <div>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-primary" type="submit" ng-submit="submit"
+                        ng-disabled="productForm.$invalid">Create</button>
+                    <button class="btn btn-secondary" type="reset">Cancel</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

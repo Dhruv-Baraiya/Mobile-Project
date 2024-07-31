@@ -1,0 +1,32 @@
+<main>
+  <header>
+      <h1>{{selectedProduct.model}}</h1>
+      <p>{{selectedProduct.description}}</p>
+  </header>
+    
+  <div class="product-images">
+      <img ng-src="{{selectedProduct.dis_img1}}">
+      <img ng-src="{{selectedProduct.dis_img2}}">
+      <img ng-src="{{selectedProduct.dis_img3}}">
+      <img ng-src="{{selectedProduct.dis_img4}}">
+      <img ng-src="{{selectedProduct.dis_img5}}">
+      <img ng-src="{{selectedProduct.dis_img6}}">
+      <img ng-src="{{selectedProduct.dis_img8}}">
+  </div>
+  
+  <div class="product-details">
+      <h2>Details</h2>
+      <ul>
+          <li><b>Brand:</b> {{selectedProduct.brand}}</li>
+          <li><b>Model:</b> {{selectedProduct.model}}</li>
+          <li><b>Price:</b> {{selectedProduct.price}}</li>
+          <li><b>Colors:</b> {{selectedProduct.colors.join(', ')}}</li>
+          <li><b> Display Type:</b> {{selectedProduct.display_type}}</li>
+          <li><b> Display Size:</b> {{selectedProduct.display_size}}</li>
+          <li><b> Processor:</b> {{selectedProduct.processor}}</li>
+          <li><b> Camera:</b> {{selectedProduct.camera}}</li>
+          <li><b> Battery:</b> {{selectedProduct.battery}}</li>
+          <li><b> Features:</b> {{selectedProduct.features.join(', ')}}</li>
+      </ul>
+  </div>
+</main>

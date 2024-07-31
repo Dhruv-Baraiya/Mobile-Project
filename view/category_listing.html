@@ -1,0 +1,43 @@
+<div class="container pt-5 mb-5">
+  <h3 class="d-flex mb-3">
+    <span class="me-auto">Categories</span>
+    <a href="#!/category_new"><button class="btn btn-sm btn-primary">Add New Category</button></a>
+  </h3>
+  <div class="card">
+    <div class="card-header">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Filter: </span>
+        <div class="btn-group btn-group-sm" role="group">
+          <input type="radio" class="btn-check" name="filter" id="filter1" value="name" ng-model="searchType" />
+          <label class="btn btn-outline-primary" for="filter1">Category Name</label>
+          <input type="radio" class="btn-check" name="filter" id="filter2" value="created_on" ng-model="searchType" />
+          <label class="btn btn-outline-primary" for="filter2">Created On</label>
+        </div>
+        <input type="search" class="form-control" id="filter-text" vaule="" ng-model="searchText" />
+      </div>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Sr no.</th>
+          <th>Category Name</th>
+          <th>Created On</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="category in categories | searchFilter:searchType:searchText">
+          <td>{{category.id}}</td>
+          <td>{{category.name}}</td>
+          <td>{{category.created_on}}</td>
+          <td width="400px">
+            <div class="changes">
+              <a href="#!/category_edit"><button class="edit btn-warning" title="Edit">Edit</button></a>
+              <button class="delete" class="edit btn-warning" title="Delete">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<h3 class="d-flex justify-content-center">New Category</h3>
+<div class="d-flex justify-content-center">
+    <div class="content">
+        <form name="newcategory" class="justify-content-center gap-3" ng-submit="verifyDate()" novalidate>
+            <h6 class="d-flex">Category Name:</h6>
+            <input type="text" name="categoryname" ng-model="categoryname" id="categoryName" class="form-control" required>
+            <div ng-show="newcategory.categoryname.$touched && newcategory.categoryname.$invalid" style="color:red">
+                <span ng-show="newcategory.categoryname.$error.required">Category Name is required.</span>
+            </div>
+            <br>
+            <h6 class="d-flex">Created On (i.e., 11 May 2007):</h6>
+            <input type="text" name="createdon" id="createdOn" class="form-control" ng-model="createdon" ng-change="validateDate(createdon)" required>
+            <div ng-show="newcategory.createdon.$touched">
+                <span ng-show="newcategory.createdon.$error.required" style="color:red">Date is required.</span>
+                <span ng-show="invalidDate" style="color: red;">Enter Valid Date</span>
+            </div>
+            <br>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary" ng-disabled="newcategory.$invalid" type="submit">Create</button>
+                <button class="btn btn-secondary" ng-disabled="newcategory.$invalid" type="reset">Cancel</button>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>

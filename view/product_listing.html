@@ -1,0 +1,70 @@
+<div class="container pt-5 mb-5">
+    <h3 class="d-flex mb-3">
+        <span class="me-auto">Mobile</span>
+        <a href="#!/product_new"><button class="btn btn-sm btn-primary" data-bs-toggle="modal">Add New Mobile</button></a>
+    </h3>
+    <!-- delete confirmation -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmModalLabel">Confirm Deletion</h5>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this product?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" ng-click="confirmDelete()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- main -->
+    <div class="card">
+        <div class="card-header">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Filter: </span>
+                <div class="btn-group btn-group-sm" role="group">
+                    <input type="radio" class="btn-check" name="filter" id="filter2" value="brand"
+                        ng-model="searchType" />
+                    <label class="btn btn-outline-primary" for="filter2">Brand</label>
+                    <input type="radio" class="btn-check" name="filter" id="filter1" value="mname"
+                        ng-model="searchType" />
+                    <label class="btn btn-outline-primary" for="filter1">Name</label>
+                </div>
+                <input type="search" class="form-control" id="filter-text" vaule="" ng-model="searchText" />
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th width="100px">Sr no.</th>
+                    <th width="400px">Picture</th>
+                    <th>Brand</th>
+                    <th>Mobile Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="mobile in all | searchFilter:searchType:searchText">
+                    <td>{{mobile.id}}</td>
+                    <td>
+                        <img src="{{mobile.dis_img1}}" alt="" width="80">
+                        <img src="{{mobile.dis_img2}}" alt="" width="80">
+                    </td>
+                    <td>{{mobile.brand}}</td>
+                    <td>{{mobile.model}}</td>
+                    <td width="400px">
+                        <div class="changes">
+                            <!-- <a href="#!/product_detail"><button class="btn btn-success" title="Details" ng-click="viewDetails(mobile._id)">Details</button></a> -->
+                            <a href="#!/product_detail/{{mobile._id}}"><button class="btn btn-success" title="Details">Details</button></a>
+                            <a href="#!/product_edit/{{mobile._id}}"><button class="edit btn-warning" title="Edit">Edit</button></a>
+                            <button class="delete btn btn-danger" title="Delete" ng-click="showDeleteConfirm(mobile._id)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

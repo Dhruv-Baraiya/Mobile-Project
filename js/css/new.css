@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.image-container {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 320px; /* Adjust width as needed */
+    height: 420px; /* Adjust height as needed */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .images{
+    max-width: 45%;
+  }
+  .content{
+    width: 53.5%;
+    margin-top: 20px;
+  }
+  .input-group,#div_editor1{
+    max-width: 100%;
+  }
+  .form-control{
+    width: 100%;
+  }
+  
